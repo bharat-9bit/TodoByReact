@@ -4,18 +4,20 @@ import InputSection from './InputSection';
 import TaskTable from './TaskTable';
 import Task from './Task';
 
-
+// Intial data
 const App: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([
     { id: 1, name: 'Buy Grocery', status: 'ToDo' },
     { id: 2, name: 'Send Email', status: 'ToDo' },
   ]);
 
+//Function For Add
   const addTask = (taskName: string) => {
     const newTask: Task = { id: tasks.length+1, name: taskName, status: 'ToDo' };
     setTasks([...tasks, newTask]);
   };
 
+//Function For Edit  
   const editTask = (id: number) => {
     const taskToEdit = tasks.find(task => task.id === id);
     
@@ -35,11 +37,13 @@ const App: React.FC = () => {
     }
   };
 
+//Function For Delete
   const deleteTask = (id: number) => {
     const updatedTasks = tasks.filter(task => task.id !== id);
     setTasks(updatedTasks);
   };
 
+//Function for Toggle  
   const toggleTaskStatus = (id: number) => {
     const updatedTasks = tasks.map(task => {
       if (task.id === id) {

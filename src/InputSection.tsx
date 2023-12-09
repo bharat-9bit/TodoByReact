@@ -7,10 +7,12 @@ interface InputSectionProps {
 const InputSection: React.FC<InputSectionProps> = ({ addTask }) => {
   const [taskName, setTaskName] = useState('');
 
+// Function to handle input change  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTaskName(e.target.value);
   };
 
+// Function to add a task 
   const handleAddTask = () => {
     if (taskName.trim() !== '') {
       addTask(taskName);
